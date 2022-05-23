@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(mqtt_publisher_present)
+project(mqtt_subscriber_present)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -22,7 +22,7 @@ set(jsoncpp_LIBRARIES
 
 catkin_package(
  INCLUDE_DIRS include
- LIBRARIES mqtt_publisher_present
+ LIBRARIES mqtt_subscriber_present
  CATKIN_DEPENDS roscpp std_msgs
  DEPENDS system_lib
 )
@@ -33,11 +33,11 @@ include
   ${jsoncpp_INCLUDE_DIRS}
 )
 
-add_executable(mqtt_publisher_present src/mqtt_main.cpp src/mqtt_pub.cpp)
+add_executable(mqtt_subscriber_present src/mqtt_main.cpp src/mqtt_sub.cpp)
 target_link_libraries(
-  mqtt_publisher_present
+  mqtt_subscriber_present
   ${catkin_LIBRARIES}
   ${mosquitto_LIBRARIES}
   ${jsoncpp_LIBRARIES}
 )
-add_dependencies(mqtt_publisher_present ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(mqtt_subscriber_present ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

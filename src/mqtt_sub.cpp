@@ -189,6 +189,7 @@ void message(struct mosquitto *mosq, void *obj, const struct mosquitto_message *
         }
         mos->sequence++;
     }
+    // std::cout <<"aa"<<std::endl;
     if(mos->sequence==0)
     {
         mos->m.lock();
